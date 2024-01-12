@@ -31,7 +31,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/thezak48/varken
+            ghcr.io/grayplex/varken
           tags: |
             type=schedule
             type=ref,event=pr
