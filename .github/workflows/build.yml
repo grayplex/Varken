@@ -3,8 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches: 
-      - 'develop'
-      - 'influxdbv2'
+      - 'main'
     tags:
       - 'v*.*.*'
 
@@ -46,7 +45,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.CR_ZAK }}
+          password: ${{ secrets.CR_GRAYPLEX }}
 
       - name: Docker build and push
         uses: docker/build-push-action@v3
