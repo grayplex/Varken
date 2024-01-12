@@ -17,10 +17,6 @@ The Grafana Dashbard included has been updated to work with multiple arr's and O
 ## **The Original Things**
 <br />
 
-[![pipeline status](https://gitlab.com/grayplex/Varken/badges/master/pipeline.svg)](https://gitlab.com/grayplex/Varken/commits/master)
-[![Discord](https://img.shields.io/discord/518970285773422592.svg?colorB=7289DA&label=Discord&logo=Discord&logoColor=7289DA&style=flat-square)](https://discord.gg/VjZ6qSM)
-[![ko-fi](https://img.shields.io/badge/Buy%20Us%20A%20Coffee-Donate-ff813f.svg?logo=CoffeeScript&style=flat-square)](https://ko-fi.com/varken)
-[![Docker-Layers](https://images.microbadger.com/badges/image/grayplex/varken.svg)](https://microbadger.com/images/grayplex/varken)
 [![Release](https://img.shields.io/github/release/grayplex/varken.svg?style=flat-square)](https://github.com/grayplex/Varken/releases/latest)
 [![Docker Pulls](https://img.shields.io/docker/pulls/grayplex/varken.svg)](https://hub.docker.com/r/grayplex/varken/)
 
