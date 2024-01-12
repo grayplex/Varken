@@ -1,5 +1,19 @@
 # Change Log
 
+## [v1.7.9](https://github.com/grayplex/varken/tree/v1.7.9) (2024-01-12)
+[Full Changelog](https://github.com/grayplex/Varken/compare/v1.7.8...v1.7.9)
+
+**Fixed bugs:**
+- \[BUG\] Fixed API reference for Radarr & Tautulli
+
+**Notes:**
+- Lidarr and Ombi have not yet been tested. Planning to test those soon, but don't have those services running on my VM. Planning for a v1.8.0 release with fully functional Varken package.
+
+## [v1.7.8](https://github.com/grayplex/varken/tree/v1.7.8) (2024-01-11)
+
+**Fixed bugs:**
+- \[BUG\] Fixed API reference for Sonarr
+
 ## [v1.7.7](https://github.com/Boerderij/Varken/tree/v1.7.7) (2020-12-21)
 [Full Changelog](https://github.com/Boerderij/Varken/compare/1.7.6...v1.7.7)
 
