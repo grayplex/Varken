@@ -1,14 +1,17 @@
 FROM python:3.10.13-alpine
 
-ARG VERSION="0.0.0"
-ARG BRANCH="dev"
-ARG BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+#ARG VERSION="0.0.0"
+#ARG BRANCH="dev"
+#ARG BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+#VERSION=$VERSION \
+#BRANCH=$BRANCH \
+#BUILD_DATE=$BUILD_DATE
 
 ENV DEBUG="True" \
     DATA_FOLDER="/config" \
-    VERSION=$VERSION \
-    BRANCH=$BRANCH \
-    BUILD_DATE=$BUILD_DATE
+    VERSION="0.0.0" \
+    BRANCH="dev" \
+    BUILD_DATE="1970-01-01"
 
 LABEL maintainer="grayplex" \
   org.opencontainers.image.created=$BUILD_DATE \
