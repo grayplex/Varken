@@ -18,6 +18,7 @@ class InfluxServer(NamedTuple):
     url: str = 'localhost'
     username: str = 'root'
     verify_ssl: bool = False
+    org: str = '-'
 
 
 class SonarrServer(NamedTuple):
@@ -80,6 +81,8 @@ class OverseerrServer(NamedTuple):
 class TautulliServer(NamedTuple):
     api_key: str = None
     fallback_ip: str = None
+    get_libraries: bool = False
+    get_libraries_run_days: int = 30
     get_activity: bool = False
     get_activity_run_seconds: int = 30
     get_stats: bool = False

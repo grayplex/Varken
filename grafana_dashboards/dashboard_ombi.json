@@ -464,11 +464,9 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"pending\" FROM \"Overseerr\" WHERE (\"type\" = 'Request_Counts') AND $timeFilter",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -569,7 +567,7 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -594,7 +592,7 @@
         }
       ],
       "timeFrom": "330s",
-      "title": "Req. Approved",
+      "title": "Requests Approved",
       "type": "stat"
     },
     {
@@ -672,7 +670,7 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -697,7 +695,7 @@
         }
       ],
       "timeFrom": "330s",
-      "title": "Req. Completed",
+      "title": "Requests Completed",
       "type": "stat"
     },
     {
@@ -1711,7 +1709,7 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1720,7 +1718,7 @@
             [
               {
                 "params": [
-                  "open"
+                  "pending"
                 ],
                 "type": "field"
               }
@@ -1764,8 +1762,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46",
+                "color": "rgba(212, 74, 58, 0.58)",
                 "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0.5
+              },
+              {
+                "color": "#299c46",
+                "value": 5
               }
             ]
           },
@@ -1806,7 +1812,7 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1815,7 +1821,7 @@
             [
               {
                 "params": [
-                  "closed"
+                  "resolved"
                 ],
                 "type": "field"
               }
@@ -1909,7 +1915,7 @@
           },
           "dsType": "influxdb",
           "groupBy": [],
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1918,7 +1924,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "in_progress"
                 ],
                 "type": "field"
               }
@@ -1934,7 +1940,7 @@
         }
       ],
       "timeFrom": "330s",
-      "title": "Total Issues",
+      "title": "Issues In Progress",
       "type": "stat"
     },
     {
@@ -4781,12 +4787,12 @@
                 "value": [
                   {
                     "options": {
-                      "1": {
+                      "0": {
                         "color": "red",
                         "index": 0,
                         "text": "Denied"
                       },
-                      "2": {
+                      "1": {
                         "color": "yellow",
                         "index": 1,
                         "text": "Pending"
@@ -4921,7 +4927,7 @@
             }
           ],
           "limit": "",
-          "measurement": "Overseerr",
+          "measurement": "Ombi",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -4956,7 +4962,7 @@
         }
       ],
       "timeFrom": "330s",
-      "title": "Overseerr Requests Pending",
+      "title": "Ombi Requests Pending",
       "transformations": [
         {
           "id": "organize",
@@ -4991,73 +4997,49 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+        "current": {},
+        "datasources": {
+          "type": "influxdb",
+          "uid": "${DS_INFLUXDB_VARKEN}"
         },
+        "definition": "SELECT distinct(\"libraries\") FROM \"Tautulli\" WHERE (\"section_types\" = 'movie') AND $timeFilter GROUP BY \"name\"",
         "hide": 0,
         "includeAll": true,
-        "label": "Movies Library Name",
+        "label": "Movies Library",
         "multi": true,
         "name": "movieslibrary",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "Movies",
-            "value": "Movies"
-          }
-        ],
-        "query": "Movies",
-        "queryValue": "",
+        "options": [],
+        "query": "SELECT distinct(\"libraries\") FROM \"Tautulli\" WHERE (\"section_type\" = 'movie') AND $timeFilter GROUP BY \"name\"",
+        "refresh": 1,
+        "regex": "",
         "skipUrlSync": false,
-        "type": "custom"
+        "sort": 0,
+        "type": "query"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+        "current": {},
+        "datasources": {
+          "type": "influxdb",
+          "uid": "${DS_INFLUXDB_VARKEN}"
         },
+        "definition": "SELECT distinct(\"libraries\") FROM \"Tautulli\" WHERE (\"section_type\" = 'show') AND $timeFilter GROUP BY \"name\"",
         "hide": 0,
         "includeAll": true,
-        "label": "TV Library Name",
+        "label": "TV Library",
         "multi": true,
         "name": "tvlibrary",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "TV Shows",
-            "value": "TV Shows"
-          }
-        ],
-        "query": "TV Shows",
-        "queryValue": "",
+        "options": [],
+        "query": "SELECT distinct(\"libraries\") FROM \"Tautulli\" WHERE (\"section_type\" = 'show') AND $timeFilter GROUP BY \"name\"",
+        "refresh": 1,
+        "regex": "",
         "skipUrlSync": false,
-        "type": "custom"
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-5y",
+    "from": "now-30d",
     "to": "now"
   },
   "timepicker": {
@@ -5088,6 +5070,6 @@
   "timezone": "browser",
   "title": "Varken [v1.8.x]",
   "uid": "iTbnha5mkasdf",
-  "version": 81,
+  "version": 77,
   "weekStart": ""
 }
