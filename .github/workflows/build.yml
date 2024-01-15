@@ -3,15 +3,13 @@ name: Build Docker Image
 on:
   push:
     branches: 
-  #    - 'main'
+      - 'main'
       - 'dev'
-  #  tags:
-  #    - 'v*.*.*'
-  #pull_request:
-  #  branches: 
-  #    - 'main'
-  repository_dispatch:
-    types: [new-tag]
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    branches: 
+      - 'main'
 
 
 jobs:
@@ -72,7 +70,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.event.client_payload.tagname }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
