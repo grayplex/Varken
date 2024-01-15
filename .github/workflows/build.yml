@@ -61,9 +61,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: |
-            ghcr.io/grayplex/varken:${{ steps.meta.outputs.tags }}
-            grayplex/varken:${{ steps.meta.outputs.tags }}
+          tags: ${{ format('ghcr.io/grayplex/varken:{0}\ngrayplex/varken:{0}', steps.meta.outputs.tags) }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache

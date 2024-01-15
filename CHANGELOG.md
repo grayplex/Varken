@@ -1,5 +1,15 @@
 # Change Log
 
+## [v1.8.0](https://github.com/grayplex/varken/tree/v1.7.9) (2024-01-15)
+[Full Changelog](https://github.com/grayplex/Varken/compare/v1.7.9...v1.8.0)
+
+**Fixed bugs:**
+- \[BUG\] Fixed API reference for Unifi.
+- \[BUG\] Fixed workflow to build and push container to both Github CR and Docker Hub.
+
+**Notes:**
+- Updated documentation for all API references for better API endpoint tracking.
+
 ## [v1.7.9](https://github.com/grayplex/varken/tree/v1.7.9) (2024-01-12)
 [Full Changelog](https://github.com/grayplex/Varken/compare/v1.7.8...v1.7.9)
 
