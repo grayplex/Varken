@@ -1,10 +1,10 @@
 name: Build Docker Image
 
 on:
-  #push:
-  #  branches: 
+  push:
+    branches: 
   #    - 'main'
-  #    - 'dev'
+      - 'dev'
   #  tags:
   #    - 'v*.*.*'
   #pull_request:
